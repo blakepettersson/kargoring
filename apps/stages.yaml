@@ -38,10 +38,6 @@ spec:
         helm:
           valueFiles:
             - 'values-{{ index .metadata.annotations "stage" }}.yaml' # This is a values file that is _baked into_ the OCI Helm chart.
-          parameters:
-            # Kargo will update this value to move new images into each stage
-            - name: image.tag
-              value: placeholder
       destination:
         name: '{{.name}}'
         namespace: '{{.appName}}'
