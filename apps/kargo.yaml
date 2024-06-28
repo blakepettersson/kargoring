@@ -6,12 +6,11 @@ metadata:
 spec:
   goTemplate: true
   generators:
-    - list:
-        elements:
-          - name: oci-guestbook
-            repoUrl: oci://registry-1.docker.io/blaaake
-            chart: helm-guestbook
-            image: ghcr.io/dhpup/guestbook
+    - git:
+        repoURL: https://github.com/blakepettersson/kargoring.git
+        targetRevision: main
+        files:
+          - path: "config/*.yaml"
   template:
     metadata:
       name: 'kargo-{{.name}}'
