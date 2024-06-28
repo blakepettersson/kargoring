@@ -8,7 +8,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/blakepettersson/kargoring.git
-        targetRevision: main
+        revision: main
         files:
           - path: "config/*.yaml"
   template:
