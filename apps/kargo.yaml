@@ -25,7 +25,7 @@ spec:
             warehouse:
               subscriptions:
                 - chart:
-                    repoURL: '{{.repoUrl}}/{{.chart}}'
+                    repoURL: '{{.registry}}/{{.chart}}'
                     semverConstraint: '*'
                 - image:
                     repoURL: '{{.image}}'
@@ -40,7 +40,7 @@ spec:
                   argoCDAppUpdates:
                     - appName: '{{.appName}}-dev'
                       sourceUpdates:
-                        - repoURL: '{{.repoUrl}}'
+                        - repoURL: '{{.registry}}'
                           chart: '{{.chart}}'
                           helm:
                             images:
