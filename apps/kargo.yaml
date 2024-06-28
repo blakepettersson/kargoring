@@ -13,7 +13,7 @@ spec:
           - path: "config/*.yaml"
   template:
     metadata:
-      name: 'kargo-{{.name}}'
+      name: 'kargo-{{.appName}}'
     spec:
       project: kargo-demo
       source:
@@ -21,7 +21,7 @@ spec:
         path: .
         helm:
           valuesObject:
-            nameOverride: '{{.name}}'
+            nameOverride: '{{.appName}}'
             warehouse:
               subscriptions:
                 - chart:
@@ -35,10 +35,10 @@ spec:
                 annotations:
                   kargo.akuity.io/color: purple
                 subscriptions:
-                  warehouse: '{{.name}}'
+                  warehouse: '{{.appName}}'
                 promotionMechanisms:
                   argoCDAppUpdates:
-                    - appName: '{{.name}}-dev'
+                    - appName: '{{.appName}}-dev'
                       sourceUpdates:
                         - repoURL: '{{.repoUrl}}'
                           chart: '{{.chart}}'
