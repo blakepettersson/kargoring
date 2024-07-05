@@ -8,7 +8,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/blakepettersson/kargoring.git
-        revision: main
+        revision: test
         files:
           - path: "config/*.yaml"
   template:
@@ -49,8 +49,7 @@ spec:
                                 value: Tag # Update Application to reference the new image version
                           updateTargetRevision: true # Update Application to reference the new chart version
       destination:
-        name: kargo1
+        name: in-cluster
       syncPolicy:
-        automated: {}
         syncOptions:
         - CreateNamespace=true

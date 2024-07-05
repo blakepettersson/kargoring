@@ -18,15 +18,12 @@ spec:
               files:
                 - path: "config/*.yaml"
           # cluster generator, 'child' #2
-          - clusters:
-              selector:
-                matchLabels:
-                  kargo-demo: 'true'
+          - clusters: {}
   template:
     metadata:
-      name: '{{.appName}}-{{ index .metadata.annotations "stage" }}'
+      name: '{{.appName}}-dev'
       annotations:
-        kargo.akuity.io/authorized-stage: '{{.appName}}:{{ index .metadata.annotations "stage" }}'
+        kargo.akuity.io/authorized-stage: '{{.appName}}:dev'
     spec:
       project: kargo-demo
       source:
@@ -36,7 +33,7 @@ spec:
         targetRevision: 0.1.0 # Initial value needs to exist in remote repo, subsequent revisions will be handled by Kargo.
         helm:
           valueFiles:
-            - 'values-{{ index .metadata.annotations "stage" }}.yaml' # This is a values file that is _baked into_ the OCI Helm chart.
+            - 'values-dev.yaml' # This is a values file that is _baked into_ the OCI Helm chart.
       destination:
         name: '{{.name}}'
         namespace: '{{.appName}}'
