@@ -1,0 +1,4 @@
+appName: something-else
+registry: oci://registry-1.docker.io/blaaake
+chart: helm-guestbook
+image: ghcr.io/dhpup/guestbook
