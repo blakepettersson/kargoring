@@ -14,7 +14,7 @@ spec:
         generators:
           - git:
               repoURL: https://github.com/blakepettersson/kargoring.git
-              revision: main
+              revision: test
               files:
                 - path: "config/*.yaml"
           # cluster generator, 'child' #2

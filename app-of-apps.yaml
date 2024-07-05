@@ -8,7 +8,7 @@ spec:
     automated: {}
   source:
     repoURL: https://github.com/blakepettersson/kargoring.git
-    targetRevision: main
+    targetRevision: test
     path: apps
     directory:
       recurse: true
